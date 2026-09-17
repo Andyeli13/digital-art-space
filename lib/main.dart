@@ -135,7 +135,7 @@ class _ArtSpaceScreenState extends State<ArtSpaceScreen> {
   }
 }
 
-// Section 1: displays the artwork image inside a frame-like container with a blurred copy of artwork as the background
+// Section 1: displays the artwork image inside a frame-like container with a blurred blackdrop copy of artwork
 class _BlurredBackdrop extends StatelessWidget {
   final String imagePath;
 
@@ -148,7 +148,6 @@ class _BlurredBackdrop extends StatelessWidget {
       child: Image.asset(
         imagePath,
         fit: BoxFit.cover,
-        // Keep the backdrop plain gray if the asset hasn't loaded yet.
         errorBuilder: (context, error, stackTrace) =>
             Container(color: const Color(0xFFEDEDED)),
         color: Colors.black.withOpacity(0.15),
@@ -182,7 +181,6 @@ class _ArtworkWall extends StatelessWidget {
         child: Image.asset(
           imagePath,
           fit: BoxFit.cover,
-          // Fallback so the app still runs before you add real images.
           errorBuilder: (context, error, stackTrace) => Container(
             color: Colors.grey[300],
             alignment: Alignment.center,
